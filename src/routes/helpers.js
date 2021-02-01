@@ -17,7 +17,16 @@ const getSingle = async (model, identifier, req, res) => {
   });
 };
 
+const createSingle = async (model, req, res) => {
+  await knex(model).insert(req.query).asCallback((err, entry) => {
+    if (err) return console.error(err);
+    res.status(201);
+    res.send(entry);
+  });
+};
+
 module.exports = {
+  createSingle,
   getAll,
   getSingle
 };
