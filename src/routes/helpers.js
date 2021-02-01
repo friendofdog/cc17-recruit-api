@@ -27,7 +27,19 @@ const createSingle = async (model, req, res) => {
 
 const updateSingle = async (model, req, res) => {
   const { id } = req.params;
-  await knex(model).where("id", id).update(req.query).asCallback((err, entry) => {
+  await knex(model).where("id", id).update(req.query).asCallback(
+    (err, entry) => {
+      if (err) return console.error(err);
+      res.sendStatus(204);
+    }
+  );
+}
+
+// TODO: Method incomplete. Need to deal with many-to-many relationship between
+// recruiters and jobs.
+const deleteSingle = async (model, req, res) => {
+  const { id } = req.params;
+  await knex(model).where("id", id).del().asCallback((err, entry) => {
     if (err) return console.error(err);
     res.sendStatus(204);
   });
@@ -35,6 +47,7 @@ const updateSingle = async (model, req, res) => {
 
 module.exports = {
   createSingle,
+  deleteSingle,
   getAll,
   getSingle,
   updateSingle

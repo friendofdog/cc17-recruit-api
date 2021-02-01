@@ -3,7 +3,7 @@ const express = require("express");
 const app = require("../server");
 const { RECRUITERS, JOBS, COMPANIES, CANDIDATES } = require("./models");
 const {
-  createSingle, getAll, getSingle, updateSingle
+  createSingle, deleteSingle, getAll, getSingle, updateSingle
 } = require("./helpers");
 
 app.use(express.json());
@@ -37,4 +37,9 @@ app.post(`/api/${RECRUITERS}`, async (req, res) => {
 /* PUT */
 app.put(`/api/${RECRUITERS}/:id`, async (req, res) => {
   await updateSingle(RECRUITERS, req, res);
+});
+
+/* DELETE */
+app.delete(`/api/${RECRUITERS}/:id`, async (req, res) => {
+  await deleteSingle(RECRUITERS, req, res);
 });
