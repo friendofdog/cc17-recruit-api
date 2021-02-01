@@ -9,7 +9,7 @@ const {
 app.use(express.json());
 
 /* GET */
-app.get(`/api/${RECRUITERS}`, async (req, res) => {
+app.get(`/api/${RECRUITERS}`, async (_, res) => {
   await getAll(RECRUITERS, res);
 });
 
