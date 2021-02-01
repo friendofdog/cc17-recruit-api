@@ -1,8 +1,15 @@
 {
+  "scripts": {
+    "dev": "nodemon -r dotenv/config ./src/server",
+    "start": "node -r dotenv/config ./src/server"
+  },
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "knex": "^0.21.17",
     "pg": "^8.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
