@@ -25,8 +25,17 @@ const createSingle = async (model, req, res) => {
   });
 };
 
+const updateSingle = async (model, req, res) => {
+  const { id } = req.params;
+  await knex(model).where("id", id).update(req.query).asCallback((err, entry) => {
+    if (err) return console.error(err);
+    res.sendStatus(204);
+  });
+}
+
 module.exports = {
   createSingle,
   getAll,
-  getSingle
+  getSingle,
+  updateSingle
 };

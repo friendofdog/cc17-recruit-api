@@ -2,7 +2,9 @@ const express = require("express");
 
 const app = require("../server");
 const { RECRUITERS, JOBS, COMPANIES, CANDIDATES } = require("./models");
-const { createSingle, getAll, getSingle } = require("./helpers");
+const {
+  createSingle, getAll, getSingle, updateSingle
+} = require("./helpers");
 
 app.use(express.json());
 
@@ -30,4 +32,9 @@ app.get(`/api/${RECRUITERS}/:id/candidates`, async (req, res) => {
 /* POST */
 app.post(`/api/${RECRUITERS}`, async (req, res) => {
   await createSingle(RECRUITERS, req, res);
+});
+
+/* PUT */
+app.put(`/api/${RECRUITERS}/:id`, async (req, res) => {
+  await updateSingle(RECRUITERS, req, res);
 });
