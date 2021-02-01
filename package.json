@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "dev": "nodemon -r dotenv/config ./src/server",
-    "start": "node -r dotenv/config ./src/server"
+    "dev": "nodemon -r dotenv/config ./src/index",
+    "start": "node -r dotenv/config ./src/index"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
