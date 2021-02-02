@@ -1,11 +1,11 @@
-const knex = require("knex");
-const config = require("./knexfile");
+const environment = process.env.ENVIRONMENT || "dev";
+const config = require("./knexfile")[environment];
+const knex = require("knex")(config);
 
-builder = knex(config[process.env.ENV] || config.dev);
-builder.schema.createTable('users', function (table) {
+knex.schema.createTable('users', function (table) {
   table.increments();
   table.string('name');
   table.timestamps();
 });
 
-module.exports = builder;
+module.exports = knex;
