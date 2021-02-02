@@ -7,7 +7,11 @@ const index = app.get("/", async (_, res) => {
   app._router.stack.forEach((r) => {
     if (r.route && r.route.path) {
       const methods = Object.keys(r.route.methods);
-      routeList.push(methods.join(", ").toUpperCase() + ": " + r.route.path);
+      routeObj = {
+        text: methods.join(", ").toUpperCase() + ": " + r.route.path,
+        link: r.route.path
+      }
+      routeList.push(routeObj);
     }
   });
 
