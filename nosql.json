@@ -1,0 +1,28 @@
+{
+  "id": 123,
+  "job_name": "Developer",
+  "job_summary": "It's a job",
+  "job_company": {
+    "company_id": 123,
+    "company_name": "ABC Inc."
+  },
+  "job_recruiter": {
+    "recruiter_id": 123,
+    "recruiter_fname": "Some",
+    "recruiter_lname": "Guy"
+  },
+  "job_candidates": [
+    {
+      "candidate_id": 123,
+      "candidate_fname": "This",
+      "candidate_lname": "Person",
+      "candidate_summary": "This is a candidate",
+      "candidate_owner": {
+        "recruiter_id": 456,
+        "recruiter_fname": "That",
+        "recruiter_lname": "Fellow"
+      }
+    }
+  ]
+}
+
